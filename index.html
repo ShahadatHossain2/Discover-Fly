@@ -28,7 +28,7 @@
     </header>
 
     <!--Booking Section-->
-    <main class="main-content container">
+    <main id="mainBody" class="main-content container">
         <div id="mainBody" class="booking-form">
             <h3>Booking Flights</h3>
             <div class="input-group">
@@ -107,8 +107,24 @@
                 veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
                 voluptatibus quam</p>
         </div>
-        </section>
-
+    </main>
+    <section id="confirmation" class="receipt">
+        <h1>Your Ticket Is Booked Successfully</h1>
+        <div class="amount">
+            <div class="left">
+                <h4>First Class Ticket</h4>
+                <h4>Economy Ticket</h4>
+                <br>
+                <h4>Total Cost</h4>
+            </div>
+            <div class="right">
+                <p id="firstClass"></p>
+                <p id="economyClass"></p>
+                <br>
+                <p id="total">$ 00</p>
+            </div>
+        </div>
+    </section>
         <!--Thank You-->
         <script>
 
@@ -174,10 +190,14 @@
                 document.getElementById(id).innerText = total;
             }
 
-            // document.getElementById('confirm').addEventListener('click',function(){
-            //     document.getElementById('confirmation').style.display = 'block';
-            //     document.getElementById('mainBody').style.document = 'none';
-            // })
+            document.getElementById('confirm').addEventListener('click',function(){
+                document.getElementById('confirmation').style.display = 'block';
+                document.getElementById('mainBody').style.display = "none";
+                document.getElementById('firstClass').innerText = document.getElementById('firstClassTicket').value;
+                document.getElementById('economyClass').innerText = document.getElementById('economyTicket').value;
+                document.getElementById('total').innerText = '$ ' + document.getElementById('totalCost').innerText;
+
+            })
 
         </script>
 </body>
