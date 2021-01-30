@@ -125,81 +125,82 @@
             </div>
         </div>
     </section>
-        <!--Thank You-->
-        <script>
+    <!--Thank You-->
+    <script>
 
-            // plus and minus button's events handling
+        // plus and minus button's events handling
 
-            document.getElementById('firstClassIncrease').addEventListener('click', function () {
-                var totalTicket = incrementAndDecrement('firstClassTicket', true);
-                var subTotal = setPriceSubTotal('subtotal');
-                var totalVat = vatCount('vat', subTotal);
-                setTotal('totalCost', subTotal, totalVat)
-            })
-            document.getElementById('firstClassDecrease').addEventListener('click', function () {
-                var totalTicket = incrementAndDecrement('firstClassTicket', false);
-                const subTotal = setPriceSubTotal('subtotal');
-                const totalVat = vatCount('vat', subTotal);
-                setTotal('totalCost', subTotal, totalVat)
-            })
-            document.getElementById('economyClassIncrease').addEventListener('click', function () {
-                var totalTicket = incrementAndDecrement('economyTicket', true);
-                const subTotal = setPriceSubTotal('subtotal');
-                const totalVat = vatCount('vat', subTotal);
-                setTotal('totalCost', subTotal, totalVat)
-            })
-            document.getElementById('economyClassDecrease').addEventListener('click', function () {
-                var totalTicket = incrementAndDecrement('economyTicket', false);
-                const subTotal = setPriceSubTotal('subtotal');
-                const totalVat = vatCount('vat', subTotal);
-                setTotal('totalCost', subTotal, totalVat)
-            })
+        document.getElementById('firstClassIncrease').addEventListener('click', function () {
+            var totalTicket = incrementAndDecrement('firstClassTicket', true);
+            var subTotal = setPriceSubTotal('subtotal');
+            var totalVat = vatCount('vat', subTotal);
+            setTotal('totalCost', subTotal, totalVat)
+        })
+        document.getElementById('firstClassDecrease').addEventListener('click', function () {
+            var totalTicket = incrementAndDecrement('firstClassTicket', false);
+            const subTotal = setPriceSubTotal('subtotal');
+            const totalVat = vatCount('vat', subTotal);
+            setTotal('totalCost', subTotal, totalVat)
+        })
+        document.getElementById('economyClassIncrease').addEventListener('click', function () {
+            var totalTicket = incrementAndDecrement('economyTicket', true);
+            const subTotal = setPriceSubTotal('subtotal');
+            const totalVat = vatCount('vat', subTotal);
+            setTotal('totalCost', subTotal, totalVat)
+        })
+        document.getElementById('economyClassDecrease').addEventListener('click', function () {
+            var totalTicket = incrementAndDecrement('economyTicket', false);
+            const subTotal = setPriceSubTotal('subtotal');
+            const totalVat = vatCount('vat', subTotal);
+            setTotal('totalCost', subTotal, totalVat)
+        })
 
-            //function of increasing ticket number
+        //function of increasing ticket number
 
-            function incrementAndDecrement(id, task) {
-                var ticketNumber = parseFloat(document.getElementById(id).value);
-                var totalTicketNumber;
-                if (task == true) {
-                    totalTicketNumber = ticketNumber + 1;
-                    document.getElementById(id).value = totalTicketNumber;
-                }
-                else if (task == false && ticketNumber != 0) {
-                    totalTicketNumber = ticketNumber - 1;
-                    document.getElementById(id).value = totalTicketNumber;
-                }
-
-                return totalTicketNumber;
+        function incrementAndDecrement(id, task) {
+            var ticketNumber = parseFloat(document.getElementById(id).value);
+            var totalTicketNumber;
+            if (task == true) {
+                totalTicketNumber = ticketNumber + 1;
+                document.getElementById(id).value = totalTicketNumber;
+            }
+            else if (task == false && ticketNumber != 0) {
+                totalTicketNumber = ticketNumber - 1;
+                document.getElementById(id).value = totalTicketNumber;
             }
 
-            //cost count 
-            function setPriceSubTotal(id) {
-                const firstClassTickets = parseFloat(document.getElementById('firstClassTicket').value);
-                const economyTickets = parseFloat(document.getElementById('economyTicket').value);
-                const totalPrice = firstClassTickets * 150 + economyTickets * 100;
-                document.getElementById(id).innerText = totalPrice;
-                return totalPrice;
-            }
-            function vatCount(id, price) {
-                const vat = price * 0.10;
-                document.getElementById(id).innerText = vat;
-                return vat;
-            }
-            function setTotal(id, subTotal, vat) {
-                const total = subTotal + vat;
-                document.getElementById(id).innerText = total;
-            }
+            return totalTicketNumber;
+        }
 
-            document.getElementById('confirm').addEventListener('click',function(){
+        //cost count 
+        function setPriceSubTotal(id) {
+            const firstClassTickets = parseFloat(document.getElementById('firstClassTicket').value);
+            const economyTickets = parseFloat(document.getElementById('economyTicket').value);
+            const totalPrice = firstClassTickets * 150 + economyTickets * 100;
+            document.getElementById(id).innerText = totalPrice;
+            return totalPrice;
+        }
+        function vatCount(id, price) {
+            const vat = price * 0.10;
+            document.getElementById(id).innerText = vat;
+            return vat;
+        }
+        function setTotal(id, subTotal, vat) {
+            const total = subTotal + vat;
+            document.getElementById(id).innerText = total;
+        }
+
+        document.getElementById('confirm').addEventListener('click', function () {
+            if (document.getElementById('totalCost').innerText != "00") {
                 document.getElementById('confirmation').style.display = 'block';
                 document.getElementById('mainBody').style.display = "none";
                 document.getElementById('firstClass').innerText = document.getElementById('firstClassTicket').value;
                 document.getElementById('economyClass').innerText = document.getElementById('economyTicket').value;
                 document.getElementById('total').innerText = '$ ' + document.getElementById('totalCost').innerText;
+            }
+        })
 
-            })
-
-        </script>
+    </script>
 </body>
 
 </html>
