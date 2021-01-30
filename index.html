@@ -109,7 +109,7 @@
         </div>
     </main>
     <section id="confirmation" class="receipt">
-        <h1>Your Ticket Is Booked Successfully</h1>
+        <h1>Your Ticket Successfully  Booked</h1>
         <div class="amount">
             <div class="left">
                 <h4>First Class Ticket</h4>
@@ -197,6 +197,9 @@
                 document.getElementById('firstClass').innerText = document.getElementById('firstClassTicket').value;
                 document.getElementById('economyClass').innerText = document.getElementById('economyTicket').value;
                 document.getElementById('total').innerText = '$ ' + document.getElementById('totalCost').innerText;
+            }
+            else{
+                alert('First select your ticket')
             }
         })
 
